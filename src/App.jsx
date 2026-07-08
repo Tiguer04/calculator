@@ -15,16 +15,28 @@ function Display({operation}){
 export default function Calculator() {
 
   const [operation, setOperation] = useState("0");
+  const [history, setHistory] = useState([]);
 
   function handleNumberClick(number) {
     setOperation(prev => prev === "0" ? number : prev + number);
   }
 
-
   function handleOperatorClick(operator) {
     setOperation(prev => prev + operator);
   }
 
+  function handleEqualClick(operation){
+
+    if(operation.endsWith('+') || operation.endsWith('-') || operation.endsWith('*') || operation.endsWith('/')){
+      setOperation("Error");
+      return;
+    }
+
+    const result = eval(operation);
+    setHistory(prev => [...prev, `${operation} = ${result}`])
+    setOperation(result.toString());
+
+  }
 
   return (
     <>
@@ -49,7 +61,7 @@ export default function Calculator() {
           <OperatorButton operator="+" onOperatorClick={() => handleOperatorClick("+")} />
         </div>
         <div className="row">
-          <OperatorButton operator="="/>
+          <OperatorButton operator="=" onOperatorClick={() => handleEqualClick(operation)} />
           <NumberButton number="0" onNumberClick={() => handleNumberClick("0")} />
           <NumberButton number="." onNumberClick={() => handleNumberClick(".")} />
           <OperatorButton operator="-" onOperatorClick={() => handleOperatorClick("-")} />
