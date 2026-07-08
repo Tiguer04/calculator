@@ -142,32 +142,140 @@ button:active {
   transform: translateY(3px);
 }
 
-.history {
-  margin-top: 14px;
-  padding: 8px 10px;
-  background: rgba(10, 10, 16, 0.6);
-  border-radius: 5px;
-  border: 1px solid #2a2a3a;
-  max-height: 120px;
+.calculator-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.history-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #554433;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  border-top: 1px solid #2a2a3a;
+  border-bottom: 1px solid #2a2a3a;
+  padding: 4px 0;
+  opacity: 0.6;
+}
+
+.history-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.history-row .history-button,
+.history-row .delete-button,
+.clean-button {
+  flex: 1;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #8a3040 0%, #6a2030 100%);
+  color: #ffc0c8;
+  box-shadow:
+    0 4px 0 #401018,
+    0 2px 4px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid #5a2028;
+  outline: none;
+  transition: all 0.05s ease;
+}
+
+.history-row .history-button:hover,
+.history-row .delete-button:hover,
+.clean-button:hover {
+  background: linear-gradient(180deg, #9a4050 0%, #7a3040 100%);
+}
+
+.history-row .history-button:active,
+.history-row .delete-button:active,
+.clean-button:active {
+  box-shadow:
+    0 1px 0 #401018,
+    0 1px 2px rgba(0,0,0,0.4);
+  transform: translateY(3px);
+}
+
+.history-notebook {
+  width: 220px;
+  max-height: 457.2px;
+  background: linear-gradient(160deg, #1c1610 0%, #15100a 100%);
+  border: 1px solid #3a3024;
+  border-radius: 8px 4px 4px 8px;
+  box-shadow:
+    0 0 0 2px #0e0a06,
+    0 6px 12px rgba(0,0,0,0.5),
+    inset 0 0 0 1px rgba(255,200,100,0.03);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  position: relative;
+}
+
+.history-notebook.open {
+  display: flex;
+}
+
+.history-notebook::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dashed rgba(255, 176, 0, 0.15);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.history-notebook::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 26px;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dashed rgba(255, 176, 0, 0.08);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.notebook-header {
+  padding: 10px 14px 8px 36px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffb000;
+  text-shadow: 0 0 6px rgba(255, 176, 0, 0.3);
+  border-bottom: 1px solid #3a3024;
+  background: rgba(0,0,0,0.2);
+}
+
+.notebook-body {
+  flex: 1;
+  padding: 8px 14px 8px 36px;
   overflow-y: auto;
   font-family: 'Share Tech Mono', monospace;
   font-size: 13px;
-  color: #886644;
+  color: #ccaa70;
+  line-height: 1.6;
 }
 
-.history-title {
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #554433;
-  margin-bottom: 4px;
+.notebook-entry {
+  padding: 4px 0;
+  border-bottom: 1px dotted rgba(255, 176, 0, 0.1);
 }
 
-.history-entry {
-  padding: 2px 0;
-  border-bottom: 1px dotted #2a2a3a;
-}
-
-.history-entry:last-child {
+.notebook-entry:last-child {
   border-bottom: none;
 }
