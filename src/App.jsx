@@ -40,22 +40,12 @@ export default function Calculator() {
   }
 
   function handleDeleteClick(operation){
-
     setOperation(prev => prev.length === 1 ? "0" : prev.slice(0, -1));
-
   }
 
   return (
     <>
     <div className="calculator">
-      <div className="brand">CALCULATOR</div>
-      <div className="solar-panel">
-        <div className="solar-cell" />
-        <div className="solar-cell" />
-        <div className="solar-cell" />
-        <div className="solar-cell" />
-        <div className="solar-cell" />
-      </div>
       <Display operation={operation} />
       <div className="row">
           <ToolButton symbol="Clear" onToolClick={() => setOperation("0")} />

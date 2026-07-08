@@ -9,48 +9,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%);
-  font-family: 'VT323', 'Courier New', monospace;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a10 100%);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
 }
 
 .calculator {
   display: flex;
   flex-direction: column;
   width: 280px;
-  padding: 24px 20px 20px;
-  background: linear-gradient(160deg, #f5e6c8 0%, #e8d5b0 40%, #d4c09a 100%);
-  border-radius: 16px 16px 20px 20px;
-  border: 2px solid #8b7355;
+  padding: 20px;
+  background: linear-gradient(160deg, #2a2a3a 0%, #1e1e2e 40%, #16161f 100%);
+  border-radius: 12px;
+  border: 2px solid #3a3a4a;
   box-shadow:
-    0 8px 0 #7a6548,
-    0 12px 24px rgba(0,0,0,0.5),
-    inset 0 1px 0 rgba(255,255,255,0.4);
+    0 6px 0 #0e0e16,
+    0 10px 20px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
   position: relative;
-}
-
-.brand {
-  font-family: 'Major Mono Display', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-align: center;
-  color: #5c4a32;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.solar-panel {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 12px;
-}
-
-.solar-cell {
-  width: 18px;
-  height: 10px;
-  background: linear-gradient(180deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
-  border: 1px solid #8b7355;
-  border-radius: 1px;
 }
 
 .display {
@@ -58,20 +33,23 @@ body {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 56px;
-  padding: 0 12px;
+  height: 60px;
+  padding: 0 14px;
   margin-bottom: 16px;
-  background: linear-gradient(180deg, #1e2b1e 0%, #2a3a2a 50%, #1e2b1e 100%);
-  border: 3px inset #7a6548;
+  background: linear-gradient(180deg, #0a0a0a 0%, #14140e 50%, #0a0a0a 100%);
+  border: 2px solid #2a2a3a;
   border-radius: 6px;
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
-  font-family: 'VT323', 'Courier New', monospace;
-  font-size: 34px;
-  color: #7cfc00;
+  box-shadow:
+    inset 0 2px 12px rgba(0,0,0,0.8),
+    0 0 4px rgba(255, 180, 0, 0.1);
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 36px;
+  color: #ffb000;
   text-shadow:
-    0 0 6px rgba(124, 252, 0, 0.8),
-    0 0 12px rgba(124, 252, 0, 0.4);
-  letter-spacing: 2px;
+    0 0 8px rgba(255, 176, 0, 0.9),
+    0 0 20px rgba(255, 176, 0, 0.4),
+    0 0 40px rgba(255, 120, 0, 0.2);
+  letter-spacing: 3px;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -87,7 +65,7 @@ button {
   height: 48px;
   border: none;
   border-radius: 6px;
-  font-family: 'VT323', 'Courier New', monospace;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
   font-size: 22px;
   cursor: pointer;
   transition: all 0.05s ease;
@@ -100,94 +78,94 @@ button:active {
 }
 
 .number-button {
-  background: linear-gradient(180deg, #fdf5e6 0%, #f0e0c0 100%);
-  color: #3a2a1a;
+  background: linear-gradient(180deg, #3a3a4a 0%, #2e2e3e 100%);
+  color: #d0d0e0;
   box-shadow:
-    0 4px 0 #c4a87a,
-    0 2px 4px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.8);
-  border: 1px solid #b8a07a;
+    0 4px 0 #7a4400,
+    0 2px 4px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid #996600;
 }
 
 .number-button:hover {
-  background: linear-gradient(180deg, #f0e0c0 0%, #e0d0a0 100%);
+  background: linear-gradient(180deg, #4a4a5a 0%, #3a3a4a 100%);
 }
 
 .number-button:active {
   box-shadow:
-    0 1px 0 #c4a87a,
-    0 1px 2px rgba(0,0,0,0.2);
+    0 1px 0 #1a1a28,
+    0 1px 2px rgba(0,0,0,0.3);
 }
 
 .operator-button {
-  background: linear-gradient(180deg, #d4883a 0%, #b87020 100%);
+  background: linear-gradient(180deg, #cc7700 0%, #b36600 100%);
   color: #ffffff;
   box-shadow:
-    0 4px 0 #8a5518,
-    0 2px 4px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  border: 1px solid #9a6528;
+    0 4px 0 #7a4400,
+    0 2px 4px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid #996600;
 }
 
 .operator-button:hover {
-  background: linear-gradient(180deg, #c4782a 0%, #a86018 100%);
+  background: linear-gradient(180deg, #dd8811 0%, #cc7700 100%);
 }
 
 .operator-button:active {
   box-shadow:
-    0 1px 0 #8a5518,
-    0 1px 2px rgba(0,0,0,0.3);
+    0 1px 0 #7a4400,
+    0 1px 2px rgba(0,0,0,0.4);
 }
 
 .tool-button {
   flex: 1;
   height: 40px;
-  background: linear-gradient(180deg, #c06060 0%, #a04848 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, #8a3040 0%, #6a2030 100%);
+  color: #ffc0c8;
   box-shadow:
-    0 4px 0 #703030,
-    0 2px 4px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  border: 1px solid #804040;
-  font-size: 18px;
+    0 4px 0 #401018,
+    0 2px 4px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  border: 1px solid #5a2028;
+  font-size: 20px;
+  margin-bottom: 6px;
 }
 
 .tool-button:hover {
-  background: linear-gradient(180deg, #b05050 0%, #903838 100%);
+  background: linear-gradient(180deg, #9a4050 0%, #7a3040 100%);
 }
 
 .tool-button:active {
   box-shadow:
-    0 1px 0 #703030,
-    0 1px 2px rgba(0,0,0,0.3);
+    0 1px 0 #401018,
+    0 1px 2px rgba(0,0,0,0.4);
   transform: translateY(3px);
 }
 
 .history {
-  margin-top: 16px;
+  margin-top: 14px;
   padding: 8px 10px;
-  background: rgba(44, 24, 16, 0.1);
-  border-radius: 6px;
-  border: 1px solid #c4a87a;
+  background: rgba(10, 10, 16, 0.6);
+  border-radius: 5px;
+  border: 1px solid #2a2a3a;
   max-height: 120px;
   overflow-y: auto;
-  font-family: 'VT323', monospace;
-  font-size: 14px;
-  color: #5c4a32;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+  color: #886644;
 }
 
 .history-title {
-  font-family: 'Major Mono Display', monospace;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #7a6548;
+  color: #554433;
   margin-bottom: 4px;
 }
 
 .history-entry {
   padding: 2px 0;
-  border-bottom: 1px dotted #c4a87a;
+  border-bottom: 1px dotted #2a2a3a;
 }
 
 .history-entry:last-child {
