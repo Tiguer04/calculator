@@ -13,6 +13,22 @@ body {
   font-family: 'Share Tech Mono', 'Courier New', monospace;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffb000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #937026;
+}
 .calculator {
   display: flex;
   flex-direction: column;
@@ -190,15 +206,11 @@ button:active {
   transition: all 0.05s ease;
 }
 
-.history-row .history-button:hover,
-.history-row .delete-button:hover,
-.clean-button:hover {
+.history-row .history-button:hover {
   background: linear-gradient(180deg, #9a4050 0%, #7a3040 100%);
 }
 
-.history-row .history-button:active,
-.history-row .delete-button:active,
-.clean-button:active {
+.history-row .history-button:active {
   box-shadow:
     0 1px 0 #401018,
     0 1px 2px rgba(0,0,0,0.4);
@@ -236,18 +248,6 @@ button:active {
   pointer-events: none;
 }
 
-.history-notebook::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 26px;
-  bottom: 0;
-  width: 1px;
-  border-left: 1px dashed rgba(255, 176, 0, 0.08);
-  z-index: 1;
-  pointer-events: none;
-}
-
 .notebook-header {
   padding: 10px 14px 8px 36px;
   font-family: 'Share Tech Mono', monospace;
@@ -273,6 +273,7 @@ button:active {
 .notebook-entry {
   padding: 4px 0;
   border-bottom: 1px dotted rgba(255, 176, 0, 0.1);
+  overflow: auto;
 }
 
 .notebook-entry:last-child {
