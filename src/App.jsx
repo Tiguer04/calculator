@@ -41,7 +41,11 @@ export default function Calculator() {
     }
 
     const chars = operation.split(/([+\-*/])/);
-    
+
+    const replacers = { '/': '÷', '*': '×' };
+
+    const formatedOperation = chars.map(char => replacers[char] || char).join(' ');
+
     let i = 0;
 
     while(i < chars.length){
@@ -66,7 +70,7 @@ export default function Calculator() {
 
     result = parseFloat(result.toFixed(3));
 
-    setHistory(prev => [...prev, `${operation} = ${result}`])
+    setHistory(prev => [...prev, `${formatedOperation} = ${result}`])
     setOperation(result.toString());
   }
 
