@@ -23,11 +23,11 @@ export default function Calculator() {
   const [showHistory, setShowHistory] = useState(false);
 
   function handleNumberClick(number) {
-    setOperation(prev => prev === "0" || prev === "Error" ? number : prev + number);
+    setOperation(prev => prev === "0" || prev === "Error" || prev === "Infinity" || prev === "NaN"? number : prev + number);
   }
 
   function handleOperatorClick(operator) {
-    setOperation(prev => prev + operator);
+    setOperation(prev => prev === "Error" || prev === "Infinity" || prev === "NaN"? 0 + operator : prev + operator);
   }
 
   function handleEqualClick(operation){
@@ -84,7 +84,11 @@ export default function Calculator() {
                 <button className="history-button" onClick={() => setShowHistory(s => !s)}>
                   {showHistory ? "CLOSE" : "HISTORY"}
                 </button>
-                <button className="delete-button" onClick={() => setHistory(prev => prev.slice(0, -1))}>
+                <button className="delete-button" onClick={() => {
+                  setHistory(prev => prev.slice(0, -1));
+                  if(history.length === 1) setShowHistory(false);
+                }
+                }>
                   DELETE
                 </button>
                 <button className="clean-button" onClick={() => { setHistory([]); setShowHistory(false); }}>
