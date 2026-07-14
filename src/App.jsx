@@ -1,15 +1,7 @@
 import { useState } from 'react';
 
-function NumberButton({number, onNumberClick}) {
-  return <button className="number-button" onClick={onNumberClick}>{number}</button>
-}
-
-function OperatorButton({operator, onOperatorClick}) {
-  return <button className="operator-button" onClick={onOperatorClick}>{operator}</button>
-}
-
-function ToolButton({symbol, onToolClick, className}) {
-  return <button className={className} onClick={onToolClick}>{symbol}</button>
+function Button({value, onClick, className}) {
+  return <button className={className} onClick={onClick}>{value}</button>
 }
 
 function Display({operation}){
@@ -84,46 +76,48 @@ export default function Calculator() {
       <div className="calculator">
         <Display operation={operation} />
         <div className="row">
-            <ToolButton symbol="CLEAR" onToolClick={() => setOperation("0")} className="tool-button" />
-            <ToolButton symbol="DELETE" onToolClick={() => handleDeleteClick(operation)} className="tool-button" />
+            <Button value="CLEAR" onClick={() => setOperation("0")} className="tool-button" />
+            <Button value="DELETE" onClick={() => handleDeleteClick(operation)} className="tool-button" />
           </div>
           <div className="row">
-            <NumberButton number="1" onNumberClick={() => handleNumberClick("1")} />
-            <NumberButton number="2" onNumberClick={() => handleNumberClick("2")} />
-            <NumberButton number="3" onNumberClick={() => handleNumberClick("3")} />
-            <OperatorButton operator="÷" onOperatorClick={() => handleOperatorClick("/")} />
+            <Button value="1" onClick={() => handleNumberClick("1")} className="number-button" />
+            <Button value="2" onClick={() => handleNumberClick("2")} className="number-button" />
+            <Button value="3" onClick={() => handleNumberClick("3")} className="number-button" />
+            <Button value="÷" onClick={() => handleOperatorClick("/")} className="operator-button" />
           </div>
           <div className="row">
-            <NumberButton number="4" onNumberClick={() => handleNumberClick("4")} />
-            <NumberButton number="5" onNumberClick={() => handleNumberClick("5")} />
-            <NumberButton number="6" onNumberClick={() => handleNumberClick("6")} />
-            <OperatorButton operator="×" onOperatorClick={() => handleOperatorClick("*")} />
+            <Button value="4" onClick={() => handleNumberClick("4")} className="number-button" />
+            <Button value="5" onClick={() => handleNumberClick("5")} className="number-button" />
+            <Button value="6" onClick={() => handleNumberClick("6")} className="number-button" />
+            <Button value="×" onClick={() => handleOperatorClick("*")} className="operator-button" />
           </div>
           <div className="row">
-            <NumberButton number="7" onNumberClick={() => handleNumberClick("7")} />
-            <NumberButton number="8" onNumberClick={() => handleNumberClick("8")} />
-            <NumberButton number="9" onNumberClick={() => handleNumberClick("9")} />
-            <OperatorButton operator="+" onOperatorClick={() => handleOperatorClick("+")} />
+            <Button value="7" onClick={() => handleNumberClick("7")} className="number-button" />
+            <Button value="8" onClick={() => handleNumberClick("8")} className="number-button" />
+            <Button value="9" onClick={() => handleNumberClick("9")} className="number-button" />
+            <Button value="+" onClick={() => handleOperatorClick("+")} className="operator-button" />
           </div>
           <div className="row">
-            <OperatorButton operator="=" onOperatorClick={() => handleEqualClick(operation)} />
-            <NumberButton number="0" onNumberClick={() => handleNumberClick("0")} />
-            <NumberButton number="." onNumberClick={() => handleNumberClick(".")} />
-            <OperatorButton operator="-" onOperatorClick={() => handleOperatorClick("-")} />
+            <Button value="=" onClick={() => handleEqualClick(operation)} className="operator-button" />
+            <Button value="0" onClick={() => handleNumberClick("0")} className="number-button" />
+            <Button value="." onClick={() => handleNumberClick(".")} className="number-button" />
+            <Button value="-" onClick={() => handleOperatorClick("-")} className="operator-button" />
           </div>
           {history.length > 0 && (
             <>
               <div className="history-label">history actions</div>
               <div className="history-row">
                 
-                <ToolButton symbol={showHistory ? "CLOSE" : "OPEN"} onToolClick={() => setShowHistory(s => !s)} className="history-button" />
+                <Button value={showHistory ? "CLOSE" : "OPEN"} onClick={() => setShowHistory(s => !s)} className="history-button" />
 
-                <ToolButton symbol="DELETE" onToolClick={() => {
+                <Button value="DELETE" onClick={() => {
                   setHistory(prev => prev.slice(0, -1));
                   if(history.length === 1) setShowHistory(false);
                 }} className="history-button" />
 
-                <ToolButton symbol="CLEAR" onToolClick={() => { setHistory([]); setShowHistory(false); }} className="history-button" />
+                <Button value="CLEAR" onClick={() => { 
+                  setHistory([]); 
+                  setShowHistory(false); }} className="history-button" />
 
               </div>
             </>
